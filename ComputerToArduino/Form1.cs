@@ -16,7 +16,7 @@ namespace ComputerToArduino
         String[] ports;
         SerialPort port;
         
-        int[] playerScore = new int[4];
+        int[] playerScore = new int[4] { 25000,25000,25000,25000};
         //リーチ棒の数
         int reachCount = 0;
         //供託棒の数
@@ -139,7 +139,7 @@ namespace ComputerToArduino
             {288000,288000,288000,288000,288000,288000,288000,288000,288000,288000,288000}
             };
 
-        string[] playerNames = new string[4];
+        string[] playerNames = new string[4] {"A","B","C","D"};
 
         public Form1()
         {
@@ -529,6 +529,7 @@ namespace ComputerToArduino
             scorePlayer1.Text = playerScore[0].ToString();
             scorePlayer2.Text = playerScore[1].ToString();
             scorePlayer3.Text = playerScore[2].ToString();
+            if (mode == 3) playerScore[3] = 0;
             scorePlayer4.Text = playerScore[3].ToString();
             
             reachCountLabel.Text = "×" + reachCount.ToString();
@@ -729,7 +730,7 @@ namespace ComputerToArduino
                 if (checkBoxPlayer4.Checked) tenpaiCount++;
 
                 if(tenpaiCount != 0) scores[0] = (mode-1) *1000 / tenpaiCount;
-                scores[1] = (mode-1) *1000 / (4-tenpaiCount);
+                scores[1] = (mode-1) *1000 / (mode-tenpaiCount);
                 ScoreLabel.Text = scores[0].ToString();
             }
         }
