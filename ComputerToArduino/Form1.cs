@@ -557,6 +557,7 @@ namespace ComputerToArduino
             playerScore[0] -= 1000;
             reachCount++;
             UpdateScores();
+            ReachPlayer1.Enabled = false;
         }
 
         private void ReachPlayer2_Click(object sender, EventArgs e)
@@ -564,6 +565,7 @@ namespace ComputerToArduino
             playerScore[1] -= 1000;
             reachCount++;
             UpdateScores();
+            ReachPlayer2.Enabled = false;
         }
 
         private void ReachPlayer3_Click(object sender, EventArgs e)
@@ -571,6 +573,7 @@ namespace ComputerToArduino
             playerScore[2] -= 1000;
             reachCount++;
             UpdateScores();
+            ReachPlayer3.Enabled = false;
         }
 
         private void ReachPlayer4_Click(object sender, EventArgs e)
@@ -578,6 +581,7 @@ namespace ComputerToArduino
             playerScore[3] -= 1000;
             reachCount++;
             UpdateScores();
+            ReachPlayer4.Enabled = false;
         }
 
         private void changeButton_Click(object sender, EventArgs e)
@@ -585,12 +589,20 @@ namespace ComputerToArduino
             round++;
             depositCount = 0;
             UpdateScores();
+            ReachPlayer1.Enabled = true;
+            ReachPlayer2.Enabled = true;
+            ReachPlayer3.Enabled = true;
+            ReachPlayer4.Enabled = true;
         }
 
         private void continueButton_Click(object sender, EventArgs e)
         {
             depositCount++;
             UpdateScores();
+            ReachPlayer1.Enabled = true;
+            ReachPlayer2.Enabled = true;
+            ReachPlayer3.Enabled = true;
+            ReachPlayer4.Enabled = true;
         }
 
         public void ScoreCalculation()

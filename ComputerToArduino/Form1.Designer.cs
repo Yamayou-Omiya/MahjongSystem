@@ -46,10 +46,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPlayer1 = new System.Windows.Forms.TextBox();
             this.groupBoxPlayer1 = new System.Windows.Forms.GroupBox();
+            this.ReachPlayer1 = new System.Windows.Forms.Button();
             this.scorePlayer1 = new System.Windows.Forms.Label();
             this.groupBoxPlayer3 = new System.Windows.Forms.GroupBox();
+            this.ReachPlayer3 = new System.Windows.Forms.Button();
             this.scorePlayer3 = new System.Windows.Forms.Label();
             this.groupBoxPlayer4 = new System.Windows.Forms.GroupBox();
+            this.ReachPlayer4 = new System.Windows.Forms.Button();
             this.scorePlayer4 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -65,38 +68,35 @@
             this.roundLabel = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ScoreLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox2Player4 = new System.Windows.Forms.CheckBox();
+            this.checkBox2Player3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2Player2 = new System.Windows.Forms.CheckBox();
+            this.checkBox2Player1 = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.checkBoxPlayer4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxPlayer3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxPlayer2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxPlayer1 = new System.Windows.Forms.CheckBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.scorePlayer2 = new System.Windows.Forms.Label();
             this.groupBoxPlayer2 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.continueButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.checkBoxPlayer1 = new System.Windows.Forms.CheckBox();
-            this.checkBoxPlayer2 = new System.Windows.Forms.CheckBox();
-            this.checkBoxPlayer3 = new System.Windows.Forms.CheckBox();
-            this.checkBoxPlayer4 = new System.Windows.Forms.CheckBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox2Player4 = new System.Windows.Forms.CheckBox();
-            this.checkBox2Player3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2Player2 = new System.Windows.Forms.CheckBox();
-            this.checkBox2Player1 = new System.Windows.Forms.CheckBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.ScoreLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ReachPlayer1 = new System.Windows.Forms.Button();
             this.ReachPlayer2 = new System.Windows.Forms.Button();
-            this.ReachPlayer3 = new System.Windows.Forms.Button();
-            this.ReachPlayer4 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.changeButton = new System.Windows.Forms.Button();
+            this.continueButton = new System.Windows.Forms.Button();
             this.logBox = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -109,18 +109,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox10.SuspendLayout();
-            this.groupBoxPlayer2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBoxPlayer2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(18, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 26);
             this.button1.TabIndex = 0;
@@ -132,7 +132,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(148, 29);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(71, 28);
             this.comboBox1.TabIndex = 1;
@@ -140,7 +140,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(14, 19);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(91, 30);
@@ -149,7 +149,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(14, 52);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 17);
             this.button2.TabIndex = 4;
@@ -163,9 +163,9 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox2.Location = new System.Drawing.Point(11, 11);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Size = new System.Drawing.Size(232, 70);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
@@ -176,9 +176,9 @@
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Location = new System.Drawing.Point(602, 17);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Size = new System.Drawing.Size(118, 80);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
@@ -290,6 +290,18 @@
             this.groupBoxPlayer1.TabStop = false;
             this.groupBoxPlayer1.Text = "Player1";
             // 
+            // ReachPlayer1
+            // 
+            this.ReachPlayer1.AutoSize = true;
+            this.ReachPlayer1.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ReachPlayer1.Location = new System.Drawing.Point(148, 2);
+            this.ReachPlayer1.Name = "ReachPlayer1";
+            this.ReachPlayer1.Size = new System.Drawing.Size(95, 30);
+            this.ReachPlayer1.TabIndex = 1;
+            this.ReachPlayer1.Text = "リーチ";
+            this.ReachPlayer1.UseVisualStyleBackColor = true;
+            this.ReachPlayer1.Click += new System.EventHandler(this.ReachPlayer1_Click);
+            // 
             // scorePlayer1
             // 
             this.scorePlayer1.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -312,6 +324,18 @@
             this.groupBoxPlayer3.TabStop = false;
             this.groupBoxPlayer3.Text = "Player3";
             // 
+            // ReachPlayer3
+            // 
+            this.ReachPlayer3.AutoSize = true;
+            this.ReachPlayer3.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ReachPlayer3.Location = new System.Drawing.Point(145, 0);
+            this.ReachPlayer3.Name = "ReachPlayer3";
+            this.ReachPlayer3.Size = new System.Drawing.Size(95, 30);
+            this.ReachPlayer3.TabIndex = 3;
+            this.ReachPlayer3.Text = "リーチ";
+            this.ReachPlayer3.UseVisualStyleBackColor = true;
+            this.ReachPlayer3.Click += new System.EventHandler(this.ReachPlayer3_Click);
+            // 
             // scorePlayer3
             // 
             this.scorePlayer3.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -333,6 +357,18 @@
             this.groupBoxPlayer4.TabIndex = 13;
             this.groupBoxPlayer4.TabStop = false;
             this.groupBoxPlayer4.Text = "Player4";
+            // 
+            // ReachPlayer4
+            // 
+            this.ReachPlayer4.AutoSize = true;
+            this.ReachPlayer4.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ReachPlayer4.Location = new System.Drawing.Point(148, 0);
+            this.ReachPlayer4.Name = "ReachPlayer4";
+            this.ReachPlayer4.Size = new System.Drawing.Size(95, 30);
+            this.ReachPlayer4.TabIndex = 4;
+            this.ReachPlayer4.Text = "リーチ";
+            this.ReachPlayer4.UseVisualStyleBackColor = true;
+            this.ReachPlayer4.Click += new System.EventHandler(this.ReachPlayer4_Click);
             // 
             // scorePlayer4
             // 
@@ -500,6 +536,234 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "あがり";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(337, 140);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(151, 35);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "決定";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.panel1);
+            this.groupBox7.Controls.Add(this.label7);
+            this.groupBox7.Controls.Add(this.comboBox3);
+            this.groupBox7.Controls.Add(this.label6);
+            this.groupBox7.Controls.Add(this.comboBox2);
+            this.groupBox7.Controls.Add(this.label5);
+            this.groupBox7.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox7.Location = new System.Drawing.Point(337, 26);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(151, 109);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "点数計算";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.ScoreLabel);
+            this.panel1.Location = new System.Drawing.Point(9, 82);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(137, 21);
+            this.panel1.TabIndex = 6;
+            // 
+            // ScoreLabel
+            // 
+            this.ScoreLabel.Location = new System.Drawing.Point(2, 2);
+            this.ScoreLabel.Name = "ScoreLabel";
+            this.ScoreLabel.Size = new System.Drawing.Size(131, 18);
+            this.ScoreLabel.TabIndex = 5;
+            this.ScoreLabel.Text = "0";
+            this.ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 65);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 14);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "点数";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "20符",
+            "25符",
+            "30符",
+            "40符",
+            "50符",
+            "60符",
+            "70符",
+            "80符",
+            "90符",
+            "100符",
+            "110符"});
+            this.comboBox3.Location = new System.Drawing.Point(81, 36);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(66, 21);
+            this.comboBox3.TabIndex = 3;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.huChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(78, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 14);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "符";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1翻",
+            "2翻",
+            "3翻",
+            "4翻",
+            "5翻",
+            "6翻",
+            "7翻",
+            "8翻",
+            "9翻",
+            "10翻",
+            "11翻",
+            "12翻",
+            "役満",
+            "二倍役満",
+            "三倍役満",
+            "四倍役満",
+            "五倍役満",
+            "六倍役満"});
+            this.comboBox2.Location = new System.Drawing.Point(9, 36);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(66, 21);
+            this.comboBox2.TabIndex = 1;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.hanChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 14);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "翻数";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkBox2Player4);
+            this.groupBox6.Controls.Add(this.checkBox2Player3);
+            this.groupBox6.Controls.Add(this.checkBox2Player2);
+            this.groupBox6.Controls.Add(this.checkBox2Player1);
+            this.groupBox6.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox6.Location = new System.Drawing.Point(232, 26);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(93, 147);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "誰から";
+            // 
+            // checkBox2Player4
+            // 
+            this.checkBox2Player4.AutoSize = true;
+            this.checkBox2Player4.Location = new System.Drawing.Point(10, 123);
+            this.checkBox2Player4.Name = "checkBox2Player4";
+            this.checkBox2Player4.Size = new System.Drawing.Size(71, 18);
+            this.checkBox2Player4.TabIndex = 3;
+            this.checkBox2Player4.Text = "Player4";
+            this.checkBox2Player4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2Player3
+            // 
+            this.checkBox2Player3.AutoSize = true;
+            this.checkBox2Player3.Location = new System.Drawing.Point(10, 92);
+            this.checkBox2Player3.Name = "checkBox2Player3";
+            this.checkBox2Player3.Size = new System.Drawing.Size(71, 18);
+            this.checkBox2Player3.TabIndex = 2;
+            this.checkBox2Player3.Text = "Player3";
+            this.checkBox2Player3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2Player2
+            // 
+            this.checkBox2Player2.AutoSize = true;
+            this.checkBox2Player2.Location = new System.Drawing.Point(10, 61);
+            this.checkBox2Player2.Name = "checkBox2Player2";
+            this.checkBox2Player2.Size = new System.Drawing.Size(71, 18);
+            this.checkBox2Player2.TabIndex = 1;
+            this.checkBox2Player2.Text = "Player2";
+            this.checkBox2Player2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2Player1
+            // 
+            this.checkBox2Player1.AutoSize = true;
+            this.checkBox2Player1.Location = new System.Drawing.Point(10, 30);
+            this.checkBox2Player1.Name = "checkBox2Player1";
+            this.checkBox2Player1.Size = new System.Drawing.Size(71, 18);
+            this.checkBox2Player1.TabIndex = 0;
+            this.checkBox2Player1.Text = "Player1";
+            this.checkBox2Player1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.checkBoxPlayer4);
+            this.groupBox5.Controls.Add(this.checkBoxPlayer3);
+            this.groupBox5.Controls.Add(this.checkBoxPlayer2);
+            this.groupBox5.Controls.Add(this.checkBoxPlayer1);
+            this.groupBox5.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.groupBox5.Location = new System.Drawing.Point(127, 26);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(93, 147);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "誰が";
+            // 
+            // checkBoxPlayer4
+            // 
+            this.checkBoxPlayer4.AutoSize = true;
+            this.checkBoxPlayer4.Location = new System.Drawing.Point(10, 123);
+            this.checkBoxPlayer4.Name = "checkBoxPlayer4";
+            this.checkBoxPlayer4.Size = new System.Drawing.Size(71, 18);
+            this.checkBoxPlayer4.TabIndex = 3;
+            this.checkBoxPlayer4.Text = "Player4";
+            this.checkBoxPlayer4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPlayer3
+            // 
+            this.checkBoxPlayer3.AutoSize = true;
+            this.checkBoxPlayer3.Location = new System.Drawing.Point(10, 92);
+            this.checkBoxPlayer3.Name = "checkBoxPlayer3";
+            this.checkBoxPlayer3.Size = new System.Drawing.Size(71, 18);
+            this.checkBoxPlayer3.TabIndex = 2;
+            this.checkBoxPlayer3.Text = "Player3";
+            this.checkBoxPlayer3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPlayer2
+            // 
+            this.checkBoxPlayer2.AutoSize = true;
+            this.checkBoxPlayer2.Location = new System.Drawing.Point(10, 61);
+            this.checkBoxPlayer2.Name = "checkBoxPlayer2";
+            this.checkBoxPlayer2.Size = new System.Drawing.Size(71, 18);
+            this.checkBoxPlayer2.TabIndex = 1;
+            this.checkBoxPlayer2.Text = "Player2";
+            this.checkBoxPlayer2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPlayer1
+            // 
+            this.checkBoxPlayer1.AutoSize = true;
+            this.checkBoxPlayer1.Location = new System.Drawing.Point(10, 30);
+            this.checkBoxPlayer1.Name = "checkBoxPlayer1";
+            this.checkBoxPlayer1.Size = new System.Drawing.Size(71, 18);
+            this.checkBoxPlayer1.TabIndex = 0;
+            this.checkBoxPlayer1.Text = "Player1";
+            this.checkBoxPlayer1.UseVisualStyleBackColor = true;
+            // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
@@ -562,6 +826,18 @@
             this.groupBoxPlayer2.TabStop = false;
             this.groupBoxPlayer2.Text = "Player2";
             // 
+            // ReachPlayer2
+            // 
+            this.ReachPlayer2.AutoSize = true;
+            this.ReachPlayer2.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ReachPlayer2.Location = new System.Drawing.Point(148, 0);
+            this.ReachPlayer2.Name = "ReachPlayer2";
+            this.ReachPlayer2.Size = new System.Drawing.Size(95, 30);
+            this.ReachPlayer2.TabIndex = 2;
+            this.ReachPlayer2.Text = "リーチ";
+            this.ReachPlayer2.UseVisualStyleBackColor = true;
+            this.ReachPlayer2.Click += new System.EventHandler(this.ReachPlayer2_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.changeButton);
@@ -574,16 +850,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "次局";
             // 
-            // continueButton
-            // 
-            this.continueButton.Location = new System.Drawing.Point(20, 26);
-            this.continueButton.Name = "continueButton";
-            this.continueButton.Size = new System.Drawing.Size(227, 35);
-            this.continueButton.TabIndex = 0;
-            this.continueButton.Text = "親番続行";
-            this.continueButton.UseVisualStyleBackColor = true;
-            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
-            // 
             // changeButton
             // 
             this.changeButton.Location = new System.Drawing.Point(260, 26);
@@ -594,287 +860,22 @@
             this.changeButton.UseVisualStyleBackColor = true;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
-            // groupBox5
+            // continueButton
             // 
-            this.groupBox5.Controls.Add(this.checkBoxPlayer4);
-            this.groupBox5.Controls.Add(this.checkBoxPlayer3);
-            this.groupBox5.Controls.Add(this.checkBoxPlayer2);
-            this.groupBox5.Controls.Add(this.checkBoxPlayer1);
-            this.groupBox5.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox5.Location = new System.Drawing.Point(127, 26);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(93, 147);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "誰が";
-            // 
-            // checkBoxPlayer1
-            // 
-            this.checkBoxPlayer1.AutoSize = true;
-            this.checkBoxPlayer1.Location = new System.Drawing.Point(10, 30);
-            this.checkBoxPlayer1.Name = "checkBoxPlayer1";
-            this.checkBoxPlayer1.Size = new System.Drawing.Size(71, 18);
-            this.checkBoxPlayer1.TabIndex = 0;
-            this.checkBoxPlayer1.Text = "Player1";
-            this.checkBoxPlayer1.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxPlayer2
-            // 
-            this.checkBoxPlayer2.AutoSize = true;
-            this.checkBoxPlayer2.Location = new System.Drawing.Point(10, 61);
-            this.checkBoxPlayer2.Name = "checkBoxPlayer2";
-            this.checkBoxPlayer2.Size = new System.Drawing.Size(71, 18);
-            this.checkBoxPlayer2.TabIndex = 1;
-            this.checkBoxPlayer2.Text = "Player2";
-            this.checkBoxPlayer2.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxPlayer3
-            // 
-            this.checkBoxPlayer3.AutoSize = true;
-            this.checkBoxPlayer3.Location = new System.Drawing.Point(10, 92);
-            this.checkBoxPlayer3.Name = "checkBoxPlayer3";
-            this.checkBoxPlayer3.Size = new System.Drawing.Size(71, 18);
-            this.checkBoxPlayer3.TabIndex = 2;
-            this.checkBoxPlayer3.Text = "Player3";
-            this.checkBoxPlayer3.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxPlayer4
-            // 
-            this.checkBoxPlayer4.AutoSize = true;
-            this.checkBoxPlayer4.Location = new System.Drawing.Point(10, 123);
-            this.checkBoxPlayer4.Name = "checkBoxPlayer4";
-            this.checkBoxPlayer4.Size = new System.Drawing.Size(71, 18);
-            this.checkBoxPlayer4.TabIndex = 3;
-            this.checkBoxPlayer4.Text = "Player4";
-            this.checkBoxPlayer4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.checkBox2Player4);
-            this.groupBox6.Controls.Add(this.checkBox2Player3);
-            this.groupBox6.Controls.Add(this.checkBox2Player2);
-            this.groupBox6.Controls.Add(this.checkBox2Player1);
-            this.groupBox6.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox6.Location = new System.Drawing.Point(232, 26);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(93, 147);
-            this.groupBox6.TabIndex = 5;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "誰から";
-            // 
-            // checkBox2Player4
-            // 
-            this.checkBox2Player4.AutoSize = true;
-            this.checkBox2Player4.Location = new System.Drawing.Point(10, 123);
-            this.checkBox2Player4.Name = "checkBox2Player4";
-            this.checkBox2Player4.Size = new System.Drawing.Size(71, 18);
-            this.checkBox2Player4.TabIndex = 3;
-            this.checkBox2Player4.Text = "Player4";
-            this.checkBox2Player4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2Player3
-            // 
-            this.checkBox2Player3.AutoSize = true;
-            this.checkBox2Player3.Location = new System.Drawing.Point(10, 92);
-            this.checkBox2Player3.Name = "checkBox2Player3";
-            this.checkBox2Player3.Size = new System.Drawing.Size(71, 18);
-            this.checkBox2Player3.TabIndex = 2;
-            this.checkBox2Player3.Text = "Player3";
-            this.checkBox2Player3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2Player2
-            // 
-            this.checkBox2Player2.AutoSize = true;
-            this.checkBox2Player2.Location = new System.Drawing.Point(10, 61);
-            this.checkBox2Player2.Name = "checkBox2Player2";
-            this.checkBox2Player2.Size = new System.Drawing.Size(71, 18);
-            this.checkBox2Player2.TabIndex = 1;
-            this.checkBox2Player2.Text = "Player2";
-            this.checkBox2Player2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2Player1
-            // 
-            this.checkBox2Player1.AutoSize = true;
-            this.checkBox2Player1.Location = new System.Drawing.Point(10, 30);
-            this.checkBox2Player1.Name = "checkBox2Player1";
-            this.checkBox2Player1.Size = new System.Drawing.Size(71, 18);
-            this.checkBox2Player1.TabIndex = 0;
-            this.checkBox2Player1.Text = "Player1";
-            this.checkBox2Player1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.panel1);
-            this.groupBox7.Controls.Add(this.label7);
-            this.groupBox7.Controls.Add(this.comboBox3);
-            this.groupBox7.Controls.Add(this.label6);
-            this.groupBox7.Controls.Add(this.comboBox2);
-            this.groupBox7.Controls.Add(this.label5);
-            this.groupBox7.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox7.Location = new System.Drawing.Point(337, 26);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(151, 109);
-            this.groupBox7.TabIndex = 6;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "点数計算";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 14);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "翻数";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "1翻",
-            "2翻",
-            "3翻",
-            "4翻",
-            "5翻",
-            "6翻",
-            "7翻",
-            "8翻",
-            "9翻",
-            "10翻",
-            "11翻",
-            "12翻",
-            "役満",
-            "二倍役満",
-            "三倍役満",
-            "四倍役満",
-            "五倍役満",
-            "六倍役満"});
-            this.comboBox2.Location = new System.Drawing.Point(9, 36);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(66, 21);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.hanChanged);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "20符",
-            "25符",
-            "30符",
-            "40符",
-            "50符",
-            "60符",
-            "70符",
-            "80符",
-            "90符",
-            "100符",
-            "110符"});
-            this.comboBox3.Location = new System.Drawing.Point(81, 36);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(66, 21);
-            this.comboBox3.TabIndex = 3;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.huChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(78, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 14);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "符";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(337, 140);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(151, 35);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "決定";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 65);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 14);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "点数";
-            // 
-            // ScoreLabel
-            // 
-            this.ScoreLabel.Location = new System.Drawing.Point(2, 2);
-            this.ScoreLabel.Name = "ScoreLabel";
-            this.ScoreLabel.Size = new System.Drawing.Size(131, 18);
-            this.ScoreLabel.TabIndex = 5;
-            this.ScoreLabel.Text = "0";
-            this.ScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.ScoreLabel);
-            this.panel1.Location = new System.Drawing.Point(9, 82);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(137, 21);
-            this.panel1.TabIndex = 6;
-            // 
-            // ReachPlayer1
-            // 
-            this.ReachPlayer1.AutoSize = true;
-            this.ReachPlayer1.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ReachPlayer1.Location = new System.Drawing.Point(161, 2);
-            this.ReachPlayer1.Name = "ReachPlayer1";
-            this.ReachPlayer1.Size = new System.Drawing.Size(84, 30);
-            this.ReachPlayer1.TabIndex = 1;
-            this.ReachPlayer1.Text = "リーチ";
-            this.ReachPlayer1.UseVisualStyleBackColor = true;
-            this.ReachPlayer1.Click += new System.EventHandler(this.ReachPlayer1_Click);
-            // 
-            // ReachPlayer2
-            // 
-            this.ReachPlayer2.AutoSize = true;
-            this.ReachPlayer2.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ReachPlayer2.Location = new System.Drawing.Point(161, 0);
-            this.ReachPlayer2.Name = "ReachPlayer2";
-            this.ReachPlayer2.Size = new System.Drawing.Size(84, 30);
-            this.ReachPlayer2.TabIndex = 2;
-            this.ReachPlayer2.Text = "リーチ";
-            this.ReachPlayer2.UseVisualStyleBackColor = true;
-            this.ReachPlayer2.Click += new System.EventHandler(this.ReachPlayer2_Click);
-            // 
-            // ReachPlayer3
-            // 
-            this.ReachPlayer3.AutoSize = true;
-            this.ReachPlayer3.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ReachPlayer3.Location = new System.Drawing.Point(158, 0);
-            this.ReachPlayer3.Name = "ReachPlayer3";
-            this.ReachPlayer3.Size = new System.Drawing.Size(84, 30);
-            this.ReachPlayer3.TabIndex = 3;
-            this.ReachPlayer3.Text = "リーチ";
-            this.ReachPlayer3.UseVisualStyleBackColor = true;
-            this.ReachPlayer3.Click += new System.EventHandler(this.ReachPlayer3_Click);
-            // 
-            // ReachPlayer4
-            // 
-            this.ReachPlayer4.AutoSize = true;
-            this.ReachPlayer4.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ReachPlayer4.Location = new System.Drawing.Point(161, 0);
-            this.ReachPlayer4.Name = "ReachPlayer4";
-            this.ReachPlayer4.Size = new System.Drawing.Size(84, 30);
-            this.ReachPlayer4.TabIndex = 4;
-            this.ReachPlayer4.Text = "リーチ";
-            this.ReachPlayer4.UseVisualStyleBackColor = true;
-            this.ReachPlayer4.Click += new System.EventHandler(this.ReachPlayer4_Click);
+            this.continueButton.Location = new System.Drawing.Point(20, 26);
+            this.continueButton.Name = "continueButton";
+            this.continueButton.Size = new System.Drawing.Size(227, 35);
+            this.continueButton.TabIndex = 0;
+            this.continueButton.Text = "親番続行";
+            this.continueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
             // 
             // logBox
             // 
             this.logBox.Location = new System.Drawing.Point(769, 17);
             this.logBox.Multiline = true;
             this.logBox.Name = "logBox";
+            this.logBox.ReadOnly = true;
             this.logBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.logBox.Size = new System.Drawing.Size(205, 362);
             this.logBox.TabIndex = 19;
@@ -883,7 +884,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 528);
+            this.ClientSize = new System.Drawing.Size(992, 529);
             this.Controls.Add(this.logBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox10);
@@ -897,7 +898,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Computer to Arduino";
             this.groupBox2.ResumeLayout(false);
@@ -919,16 +920,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.groupBoxPlayer2.ResumeLayout(false);
-            this.groupBoxPlayer2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBoxPlayer2.ResumeLayout(false);
+            this.groupBoxPlayer2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

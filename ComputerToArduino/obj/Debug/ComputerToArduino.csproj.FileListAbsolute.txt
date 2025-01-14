@@ -37,3 +37,16 @@ C:\Users\yamay\Desktop\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerTo
 C:\Users\yamay\Desktop\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.application
 C:\Users\yamay\Desktop\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.exe
 C:\Users\yamay\Desktop\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.pdb
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\bin\Debug\ComputerToArduino.exe.manifest
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\bin\Debug\ComputerToArduino.application
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\bin\Debug\ComputerToArduino.exe
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\bin\Debug\ComputerToArduino.pdb
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.csproj.AssemblyReference.cache
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.Form1.resources
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.Properties.Resources.resources
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.csproj.GenerateResource.cache
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.csproj.CoreCompileInputs.cache
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.exe.manifest
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.application
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.exe
+C:\Users\yamay\Documents\work\MahjongSystem\ComputerToArduino\obj\Debug\ComputerToArduino.pdb
