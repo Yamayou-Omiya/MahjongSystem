@@ -678,10 +678,10 @@ namespace ComputerToArduino
                     //親番
                     if (round % mode == 1)
                     {
-                        scores[0] = parentRonScore[han, hu] + depositCount * 300;
+                        scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode-1);
                         ScoreLabel.Text = scores[0].ToString();
                     }else{
-                        scores[0] = childRonScore[han, hu] + depositCount * 300;
+                        scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }
                 }else if (checkBoxPlayer2.Checked)
@@ -689,10 +689,10 @@ namespace ComputerToArduino
                     //親番
                     if (round % mode == 2)
                     {
-                        scores[0] = parentRonScore[han, hu] + depositCount * 300;
+                        scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }else{
-                        scores[0] = childRonScore[han, hu] + depositCount * 300;
+                        scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }
                 }else if (checkBoxPlayer3.Checked)
@@ -700,20 +700,20 @@ namespace ComputerToArduino
                     //親番
                     if (round % mode == 3)
                     {
-                        scores[0] = parentRonScore[han, hu] + depositCount * 300;
+                        scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }else{
-                        scores[0] = childRonScore[han, hu] + depositCount * 300;
+                        scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }
                 }else if (checkBoxPlayer4.Checked){
                     //親番
                     if (round % mode == 0)
                     {
-                        scores[0] = parentRonScore[han, hu] + depositCount * 300;
+                        scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }else{
-                        scores[0] = childRonScore[han, hu] + depositCount * 300;
+                        scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode - 1);
                         ScoreLabel.Text = scores[0].ToString();
                     }
                 }
