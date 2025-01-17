@@ -31,10 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,8 +95,8 @@
             this.changeButton = new System.Windows.Forms.Button();
             this.continueButton = new System.Windows.Forms.Button();
             this.logBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxPlayer1.SuspendLayout();
             this.groupBoxPlayer3.SuspendLayout();
@@ -137,26 +134,6 @@
             this.comboBox1.Size = new System.Drawing.Size(71, 28);
             this.comboBox1.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(14, 19);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(91, 30);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(14, 52);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 17);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Write";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.comboBox1);
@@ -170,21 +147,6 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Serial Connection";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Location = new System.Drawing.Point(602, 17);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(118, 80);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "LCD 16x2 Control";
-            this.groupBox3.Visible = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox1
             // 
@@ -890,11 +852,23 @@
             this.logBox.Size = new System.Drawing.Size(205, 362);
             this.logBox.TabIndex = 19;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button2.Location = new System.Drawing.Point(658, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 38);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "リセット";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ResetAll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 529);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.logBox);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox10);
@@ -906,14 +880,11 @@
             this.Controls.Add(this.groupBoxPlayer3);
             this.Controls.Add(this.groupBoxPlayer1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Computer to Arduino";
             this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBoxPlayer1.ResumeLayout(false);
@@ -949,10 +920,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxPlayer4;
@@ -1016,6 +984,7 @@
         private System.Windows.Forms.Button ReachPlayer4;
         private System.Windows.Forms.Button ReachPlayer2;
         private System.Windows.Forms.TextBox logBox;
+        private System.Windows.Forms.Button button2;
     }
 }
 

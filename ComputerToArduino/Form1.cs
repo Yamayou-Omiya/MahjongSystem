@@ -148,7 +148,6 @@ namespace ComputerToArduino
         public Form1()
         {
             InitializeComponent();
-            disableControls();
             getAvailableComPorts();
 
             for(int i = 0; i < 4; i++)
@@ -173,13 +172,7 @@ namespace ComputerToArduino
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!isConnected)
-            {
-                connectToArduino();
-            } else
-            {
-                disconnectFromArduino();
-            }
+
         }
 
         void getAvailableComPorts()
@@ -187,63 +180,6 @@ namespace ComputerToArduino
             ports = SerialPort.GetPortNames();
         }
 
-        private void connectToArduino()
-        {
-            isConnected = true;
-            string selectedPort = comboBox1.GetItemText(comboBox1.SelectedItem);
-            port = new SerialPort(selectedPort, 9600, Parity.None, 8, StopBits.One);
-            port.Open();
-            port.Write("#STAR\n");
-            button1.Text = "Disconnect";
-            enableControls();
-        }
-
-        private void disconnectFromArduino()
-        {
-            isConnected = false;
-            port.Write("#STOP\n");
-            port.Close();
-            button1.Text = "Connect";
-            disableControls();
-            resetDefaults();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (isConnected)
-            {
-                port.Write("#TEXT" + textBox1.Text + "#\n");
-            }
-        }
-
-        private void enableControls()
-        {
-            
-            button2.Enabled = true;
-            textBox1.Enabled = true;
-            
-            groupBox3.Enabled = true;
-
-        }
-
-        private void disableControls()
-        {
-
-            button2.Enabled = false;
-            textBox1.Enabled = false;
-
-            groupBox3.Enabled = false;
-        }
-
-        private void resetDefaults()
-        {
-            textBox1.Text = "";
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -685,6 +621,29 @@ namespace ComputerToArduino
         private void AgariScoreChanged(object sender, EventArgs e)
         {
             ScoreCalculation();
+        }
+
+        private void ResetAll(object sender, EventArgs e)
+        {
+            round = 1;
+            han = 0;
+            hu = 0;
+            reachCount = 0;
+            depositCount = 0;
+            if(mode == 4){
+                for(int i = 0; i < 4; i++)
+                {
+                    playerScore[i] = 25000;
+                }
+            }else{
+                for(int i = 0; i < 3; i++)
+                {
+                    playerScore[i] = 35000;
+                }
+                playerScore[3] = 0;
+            }
+            UpdateScores();
+            ResetScoreCalculation();
         }
     }
 }
