@@ -447,6 +447,7 @@ namespace ComputerToArduino
                         }          
                     }
                 }
+                reachCount = 0;
             }
 
             //ロンの場合
