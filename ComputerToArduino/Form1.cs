@@ -183,22 +183,7 @@ namespace ComputerToArduino
 
         private void button3_Click(object sender, EventArgs e)
         {
-            groupBoxPlayer1.Text = textBoxPlayer1.Text;
-            groupBoxPlayer2.Text = textBoxPlayer2.Text;
-            groupBoxPlayer3.Text = textBoxPlayer3.Text;
-            groupBoxPlayer4.Text = textBoxPlayer4.Text;
-            checkBoxPlayer1.Text = textBoxPlayer1.Text;
-            checkBoxPlayer2.Text = textBoxPlayer2.Text;
-            checkBoxPlayer3.Text = textBoxPlayer3.Text;
-            checkBoxPlayer4.Text = textBoxPlayer4.Text;
-            checkBox2Player1.Text = textBoxPlayer1.Text;
-            checkBox2Player2.Text = textBoxPlayer2.Text;
-            checkBox2Player3.Text = textBoxPlayer3.Text;
-            checkBox2Player4.Text = textBoxPlayer4.Text;
-            playerNames[0] = textBoxPlayer1.Text;
-            playerNames[1] = textBoxPlayer2.Text;
-            playerNames[2] = textBoxPlayer3.Text;
-            playerNames[3] = textBoxPlayer4.Text;
+            ChangePlayerName();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -645,6 +630,26 @@ namespace ComputerToArduino
             }
             UpdateScores();
             ResetScoreCalculation();
+        }
+
+        private void ChangePlayerName()
+        {
+            groupBoxPlayer1.Text = textBoxPlayer1.Text;
+            groupBoxPlayer2.Text = textBoxPlayer2.Text;
+            groupBoxPlayer3.Text = textBoxPlayer3.Text;
+            groupBoxPlayer4.Text = textBoxPlayer4.Text;
+            checkBoxPlayer1.Text = textBoxPlayer1.Text;
+            checkBoxPlayer2.Text = textBoxPlayer2.Text;
+            checkBoxPlayer3.Text = textBoxPlayer3.Text;
+            checkBoxPlayer4.Text = textBoxPlayer4.Text;
+            checkBox2Player1.Text = textBoxPlayer1.Text;
+            checkBox2Player2.Text = textBoxPlayer2.Text;
+            checkBox2Player3.Text = textBoxPlayer3.Text;
+            checkBox2Player4.Text = textBoxPlayer4.Text;
+            playerNames[0] = textBoxPlayer1.Text;
+            playerNames[1] = textBoxPlayer2.Text;
+            playerNames[2] = textBoxPlayer3.Text;
+            playerNames[3] = textBoxPlayer4.Text;
         }
     }
 }
