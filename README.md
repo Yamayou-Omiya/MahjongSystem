@@ -56,7 +56,7 @@
 - ロン（親／子）
 - 流局時テンパイ者への支払い処理
 
-> 詳細は [`Form1.cs`](./Form1.cs) をご確認ください．
+> 詳細は [`Form1.cs`](./ComputerToArduino/Form1.cs) をご確認ください．
 
 ---
 
