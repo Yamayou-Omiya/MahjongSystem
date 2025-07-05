@@ -355,6 +355,13 @@ namespace ComputerToArduino
             {
                 roundLabel.Text = "北" + (round - mode*3).ToString() + "局";
             }
+
+            if (isConnected && port != null && port.IsOpen)
+            {
+                // 100点単位で切り捨てて送信（例：25000 → 250）
+                string scoreString = string.Join(",", Array.ConvertAll(playerScore, score => (score / 100).ToString()));
+                port.WriteLine(scoreString);
+            }
         }
 
         public void ScoreCalculation()

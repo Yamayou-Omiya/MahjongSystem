@@ -1,111 +1,64 @@
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-String inputString = "";         // a string to hold incoming data
-boolean stringComplete = false;  // whether the string is complete
-String commandString = "";
+// LCDインスタンスを4つ生成（プレイヤーA〜D用）
+LiquidCrystal_I2C lcds[4] = {
+  LiquidCrystal_I2C(0x24, 16, 2),
+  LiquidCrystal_I2C(0x25, 16, 2),
+  LiquidCrystal_I2C(0x26, 16, 2),
+  LiquidCrystal_I2C(0x27, 16, 2)
+};
 
-
-
-boolean isConnected = false;
-
-LiquidCrystal_I2C lcd(0x27,16,2);
-
+String inputString = "";
+int scores[4];
 
 void setup() {
-  
   Serial.begin(9600);
-  lcd.init();
-  lcd.backlight();
-  lcd.print("Ready to connect");
-  
+  for (int i = 0; i < 4; i++) {
+    lcds[i].init();
+    lcds[i].backlight();
+    lcds[i].clear();
+    lcds[i].setCursor(0, 0);
+    lcds[i].print("Waiting scores");
+  }
 }
 
 void loop() {
+  if (Serial.available()) {
+    inputString = Serial.readStringUntil('\n');
 
-if(stringComplete)
-{
-  stringComplete = false;
-  getCommand();
-  
-  if(commandString.equals("STAR"))
-  {
-    lcd.clear();
-  }
-  if(commandString.equals("STOP"))
-  {
-    lcd.clear();
-    lcd.print("Ready to connect");    
-  }
-  else if(commandString.equals("TEXT"))
-  {
-    String text = getTextToPrint();
-    printText(text);
-  }
-  
-  inputString = "";
-}
-
-}
-
-void initDisplay()
-{
-  lcd.begin(16, 2);
-  lcd.print("Ready to connect");
-}
-
-
-
-void getCommand()
-{
-  if(inputString.length()>0)
-  {
-     commandString = inputString.substring(1,5);
-  }
-}
-
-void turnLedOn(int pin)
-{
-  digitalWrite(pin,HIGH);
-}
-
-void turnLedOff(int pin)
-{
-  digitalWrite(pin,LOW);
-}
-
-
-String getTextToPrint()
-{
-  String value = inputString.substring(5,inputString.length()-2);
-  return value;
-}
-
-void printText(String text)
-{
-  lcd.clear();
-  lcd.setCursor(0,0);
-    if(text.length()<16)
-    {
-      lcd.print(text);
-    }else
-    {
-      lcd.print(text.substring(0,16));
-      lcd.setCursor(0,1);
-      lcd.print(text.substring(16,32));
+    // カンマ区切り → scores[]に格納
+    int idx = 0, start = 0;
+    for (int i = 0; i <= inputString.length(); i++) {
+      if (inputString[i] == ',' || i == inputString.length()) {
+        scores[idx++] = inputString.substring(start, i).toInt();
+        start = i + 1;
+      }
     }
-}
 
-void serialEvent() {
-  while (Serial.available()) {
-    // get the new byte:
-    char inChar = (char)Serial.read();
-    // add it to the inputString:
-    inputString += inChar;
-    // if the incoming character is a newline, set a flag
-    // so the main loop can do something about it:
-    if (inChar == '\n') {
-      stringComplete = true;
+    // 各LCDに自分視点で表示
+    for (int i = 0; i < 4; i++) {
+      lcds[i].clear();
+      
+      // 1行目：他家の点数を左・中央・右に配置
+      int otherIdx[3];
+      int j = 0;
+      for (int k = 0; k < 4; k++) {
+        if (k != i) otherIdx[j++] = k;
+      }
+
+      lcds[i].setCursor(0, 0);
+      lcds[i].print(scores[otherIdx[0]]);
+      lcds[i].setCursor(6, 0);
+      lcds[i].print(scores[otherIdx[1]]);
+      lcds[i].setCursor(12, 0);
+      lcds[i].print(scores[otherIdx[2]]);
+
+      // 2行目：自分の点数を中央に表示
+      String myScore = String(scores[i]);
+      int pos = (16 - myScore.length()) / 2;
+      lcds[i].setCursor(pos, 1);
+      lcds[i].print(myScore);
     }
   }
 }
-
