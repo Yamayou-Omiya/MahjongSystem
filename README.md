@@ -12,7 +12,7 @@
 - ✅ 東1局〜北4局までの局進行
 - ✅ 3人麻雀 / 4人麻雀の切り替え
 - ✅ 点数ログの自動出力
-- ✅ COMポートによるArduino連携（将来的な拡張）
+- ✅ COMポートによるArduino連携
 
 ---
 
@@ -60,7 +60,93 @@
 
 ---
 
+## 🧩 Arduinoとの連携表示（複数LCD対応）
 
+本アプリは，スコア計算結果をリアルタイムにArduinoへ送信し，I2C接続されたLCDに表示する機能を備えています（多分できる）．  
+各プレイヤーがそれぞれのLCDディスプレイで，**自分の点数を2行目中央に，他3人の点数を1行目に確認**できます．
+
+> 複数LCDのI2C接続に関しては，[こちらの解説](https://ohkin.mydns.jp/archives/710)を参考にしてます．
+
+### 🔧 ハードウェア構成（例）
+
+| LCDアドレス | 対応プレイヤー | 表示内容 |
+|-------------|----------------|-----------|
+| `0x24`      | Player 1       | 他3人の点数（1行目），自分の点数（2行目中央） |
+| `0x25`      | Player 2       | 同上 |
+| `0x26`      | Player 3       | 同上 |
+| `0x27`      | Player 4       | 同上（四麻時のみ） |
+
+> LCDはI2C接続（SDA: A4, SCL: A5）で接続されます．アドレスが重複しないように設定してください．
+
+### 📡 通信仕様
+
+- C#アプリから点数を**100点単位**で送信（例：25000点 → `250`）
+- データは**カンマ区切り**（例：`250,260,200,290\n`）で送信
+- Arduinoは受信した点数を分割し，各LCDに**プレイヤーごとの視点で表示**
+
+### 📦 Arduino側のスケッチ（概要）
+
+```cpp
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// 4台のLCDをそれぞれ初期化
+LiquidCrystal_I2C lcds[4] = {
+  LiquidCrystal_I2C(0x24, 16, 2),
+  LiquidCrystal_I2C(0x25, 16, 2),
+  LiquidCrystal_I2C(0x26, 16, 2),
+  LiquidCrystal_I2C(0x27, 16, 2)
+};
+
+String inputString = "";
+int scores[4];
+
+void setup() {
+  Serial.begin(9600);
+  for (int i = 0; i < 4; i++) {
+    lcds[i].init();
+    lcds[i].backlight();
+    lcds[i].clear();
+    lcds[i].print("Waiting scores");
+  }
+}
+
+void loop() {
+  if (Serial.available()) {
+    inputString = Serial.readStringUntil('\n');
+
+    int idx = 0, start = 0;
+    for (int i = 0; i <= inputString.length(); i++) {
+      if (inputString[i] == ',' || i == inputString.length()) {
+        scores[idx++] = inputString.substring(start, i).toInt();
+        start = i + 1;
+      }
+    }
+
+    for (int i = 0; i < 4; i++) {
+      lcds[i].clear();
+
+      // 他家のインデックス
+      int others[3], j = 0;
+      for (int k = 0; k < 4; k++) {
+        if (k != i) others[j++] = k;
+      }
+
+      lcds[i].setCursor(0, 0);
+      lcds[i].print(scores[others[0]]);
+      lcds[i].setCursor(6, 0);
+      lcds[i].print(scores[others[1]]);
+      lcds[i].setCursor(12, 0);
+      lcds[i].print(scores[others[2]]);
+
+      String myScore = String(scores[i]);
+      int pos = (16 - myScore.length()) / 2;
+      lcds[i].setCursor(pos, 1);
+      lcds[i].print(myScore);
+    }
+  }
+}
+```
 ## 💻 動作環境
 
 - Windows 10 以上
