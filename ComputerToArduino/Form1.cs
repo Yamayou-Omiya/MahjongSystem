@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.IO.Ports;
+using System.Windows.Forms;
 
 namespace ComputerToArduino
 {
@@ -15,8 +10,8 @@ namespace ComputerToArduino
         bool isConnected = false;
         String[] ports;
         SerialPort port;
-        
-        int[] playerScore = new int[4] { 25000,25000,25000,25000};
+
+        int[] playerScore = new int[4] { 25000, 25000, 25000, 25000 };
         //リーチ棒の数
         int reachCount = 0;
         //供託棒の数
@@ -139,7 +134,7 @@ namespace ComputerToArduino
             {288000,288000,288000,288000,288000,288000,288000,288000,288000,288000,288000}
             };
 
-        string[] playerNames = new string[4] {"A","B","C","D"};
+        string[] playerNames = new string[4] { "A", "B", "C", "D" };
 
         CheckBox[] checkBoxPlayers1 = new CheckBox[4];
         CheckBox[] checkBoxPlayers2 = new CheckBox[4];
@@ -150,10 +145,10 @@ namespace ComputerToArduino
             InitializeComponent();
             getAvailableComPorts();
 
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                checkBoxPlayers1[i] = (CheckBox)Controls.Find("checkBoxPlayer" + (i+1).ToString(), true)[0];
-                checkBoxPlayers2[i] = (CheckBox)Controls.Find("checkBox2Player" + (i+1).ToString(), true)[0];
+                checkBoxPlayers1[i] = (CheckBox)Controls.Find("checkBoxPlayer" + (i + 1).ToString(), true)[0];
+                checkBoxPlayers2[i] = (CheckBox)Controls.Find("checkBox2Player" + (i + 1).ToString(), true)[0];
             }
             groupBoxes[0] = groupBox5;
             groupBoxes[1] = groupBox6;
@@ -172,8 +167,37 @@ namespace ComputerToArduino
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (isConnected) return;
 
+            var portName = comboBox1.SelectedItem as string;
+            if (string.IsNullOrEmpty(portName))
+            {
+                MessageBox.Show("COMポートを選んでください。");
+                return;
+            }
+
+            try
+            {
+                port = new SerialPort(portName, 9600);
+                port.NewLine = "\n";            // Arduinoの readStringUntil('\n') と合わせる
+                port.Handshake = Handshake.None;
+                port.DtrEnable = true;          // 必要なら
+                port.RtsEnable = true;          // 必要なら
+                port.Open();
+
+                isConnected = true;
+
+                // 接続直後に現在スコアを一発送信
+                UpdateScores();
+
+                MessageBox.Show("接続しました: " + portName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("接続に失敗: " + ex.Message);
+            }
         }
+
 
         void getAvailableComPorts()
         {
@@ -188,7 +212,7 @@ namespace ComputerToArduino
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(comboBoxMode.Text == "三人麻雀")
+            if (comboBoxMode.Text == "三人麻雀")
             {
                 mode = 3;
                 for (int i = 0; i < 3; i++)
@@ -206,7 +230,7 @@ namespace ComputerToArduino
                 {
                     playerScore[i] = 25000;
                 }
-                checkBoxPlayer4.Enabled =true;
+                checkBoxPlayer4.Enabled = true;
                 checkBox2Player4.Enabled = true;
             }
 
@@ -215,8 +239,8 @@ namespace ComputerToArduino
         }
 
         private void button7_Click(object sender, EventArgs e)
-        {     
-            if(IsCorrectInput())
+        {
+            if (IsCorrectInput())
             {
                 ChangeScore();
                 AddLog();
@@ -224,7 +248,7 @@ namespace ComputerToArduino
                 UpdateScores();
                 disableGroupBoxes();
             }
-        }  
+        }
 
         private void ReachPlayer1_Click(object sender, EventArgs e)
         {
@@ -315,31 +339,32 @@ namespace ComputerToArduino
             scores[1] = 0;
         }
 
-        public void UpdateScores(){
+        public void UpdateScores()
+        {
             scorePlayer1.Text = playerScore[0].ToString();
             scorePlayer2.Text = playerScore[1].ToString();
             scorePlayer3.Text = playerScore[2].ToString();
             if (mode == 3) playerScore[3] = 0;
             scorePlayer4.Text = playerScore[3].ToString();
-            
+
             reachCountLabel.Text = "×" + reachCount.ToString();
             depositCountLabel.Text = "×" + depositCount.ToString();
             //roundが1-4なら東〇局、5-8なら南〇局、9-12なら西〇局、13-16なら北〇局
-            if(round <= mode)
+            if (round <= mode)
             {
                 roundLabel.Text = "東" + round.ToString() + "局";
             }
-            else if(round <= mode*2)
+            else if (round <= mode * 2)
             {
                 roundLabel.Text = "南" + (round - mode).ToString() + "局";
             }
-            else if(round <= mode*3)
+            else if (round <= mode * 3)
             {
-                roundLabel.Text = "西" + (round - mode*2).ToString() + "局";
+                roundLabel.Text = "西" + (round - mode * 2).ToString() + "局";
             }
             else
             {
-                roundLabel.Text = "北" + (round - mode*3).ToString() + "局";
+                roundLabel.Text = "北" + (round - mode * 3).ToString() + "局";
             }
 
             if (isConnected && port != null && port.IsOpen)
@@ -355,37 +380,42 @@ namespace ComputerToArduino
             //ツモの場合
             if (radioButton1.Checked)
             {
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked)
+                    if (checkBox.Checked)
                     {
-                        if(round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox)+1) % mode)
+                        if (round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox) + 1) % mode)
                         {
                             scores[0] = parentTsumoScore[han, hu] + depositCount * 100;
                             ScoreLabel.Text = scores[0].ToString() + "オール";
-                        }else{
+                        }
+                        else
+                        {
                             scores[0] = childParentTsumoScore[han, hu] + depositCount * 100;
                             scores[1] = childChildTsumoScore[han, hu] + depositCount * 100;
                             ScoreLabel.Text = scores[1].ToString() + " / " + scores[0].ToString();
-                        }          
+                        }
                     }
                 }
             }
 
             //ロンの場合
-            if(radioButton2.Checked){
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+            if (radioButton2.Checked)
+            {
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked)
+                    if (checkBox.Checked)
                     {
-                        if(round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox)+1) % mode)
+                        if (round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox) + 1) % mode)
                         {
-                            scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode-1);
+                            scores[0] = parentRonScore[han, hu] + depositCount * 100 * (mode - 1);
                             ScoreLabel.Text = scores[0].ToString();
-                        }else{
-                            scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode-1);
+                        }
+                        else
+                        {
+                            scores[0] = childRonScore[han, hu] + depositCount * 100 * (mode - 1);
                             ScoreLabel.Text = scores[0].ToString();
-                        }          
+                        }
                     }
                 }
             }
@@ -397,14 +427,14 @@ namespace ComputerToArduino
                 int tenpaiCount = 0;
                 scores[0] = 0;
                 scores[1] = 0;
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked) tenpaiCount++;
+                    if (checkBox.Checked) tenpaiCount++;
                 }
 
-                if(tenpaiCount != 0) scores[0] = (mode-1) *1000 / tenpaiCount;
-                if(tenpaiCount == mode) scores[0] = 0;
-                if(tenpaiCount != mode && tenpaiCount != 0)scores[1] = (mode-1) *1000 / (mode-tenpaiCount);
+                if (tenpaiCount != 0) scores[0] = (mode - 1) * 1000 / tenpaiCount;
+                if (tenpaiCount == mode) scores[0] = 0;
+                if (tenpaiCount != mode && tenpaiCount != 0) scores[1] = (mode - 1) * 1000 / (mode - tenpaiCount);
                 ScoreLabel.Text = scores[0].ToString();
             }
         }
@@ -412,173 +442,200 @@ namespace ComputerToArduino
         public void ChangeScore()
         {
             //ツモの場合
-            if(radioButton1.Checked){
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+            if (radioButton1.Checked)
+            {
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked)
+                    if (checkBox.Checked)
                     {
-                        if(round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox)+1) % mode)
+                        if (round % mode == (Array.IndexOf(checkBoxPlayers1, checkBox) + 1) % mode)
                         {
-                            playerScore[Array.IndexOf(checkBoxPlayers1, checkBox)] += scores[0]*(mode-1) + reachCount*1000;
-                            for(int i = 0; i < mode; i++)
+                            playerScore[Array.IndexOf(checkBoxPlayers1, checkBox)] += scores[0] * (mode - 1) + reachCount * 1000;
+                            for (int i = 0; i < mode; i++)
                             {
-                                if(i != Array.IndexOf(checkBoxPlayers1, checkBox))
+                                if (i != Array.IndexOf(checkBoxPlayers1, checkBox))
                                 {
                                     playerScore[i] -= scores[0];
                                 }
                             }
-                        }else{
-                            playerScore[Array.IndexOf(checkBoxPlayers1, checkBox)] += scores[0] + scores[1]*(mode-2) + reachCount*1000;
-                            for(int i = 0; i < mode; i++)
+                        }
+                        else
+                        {
+                            playerScore[Array.IndexOf(checkBoxPlayers1, checkBox)] += scores[0] + scores[1] * (mode - 2) + reachCount * 1000;
+                            for (int i = 0; i < mode; i++)
                             {
-                                if(i != Array.IndexOf(checkBoxPlayers1, checkBox))
+                                if (i != Array.IndexOf(checkBoxPlayers1, checkBox))
                                 {
-                                    if((i+1)%mode == round%mode) playerScore[i] -= scores[0];
+                                    if ((i + 1) % mode == round % mode) playerScore[i] -= scores[0];
                                     else playerScore[i] -= scores[1];
                                 }
                             }
-                        }          
+                        }
                     }
                 }
                 reachCount = 0;
             }
 
             //ロンの場合
-            if(radioButton2.Checked){
-                if(checkBoxPlayer1.Checked)
+            if (radioButton2.Checked)
+            {
+                if (checkBoxPlayer1.Checked)
                 {
-                    playerScore[0] += scores[0] + reachCount*1000;
-                }else if(checkBoxPlayer2.Checked)
+                    playerScore[0] += scores[0] + reachCount * 1000;
+                }
+                else if (checkBoxPlayer2.Checked)
                 {
-                    playerScore[1] += scores[0] + reachCount*1000;
-                }else if(checkBoxPlayer3.Checked){
-                    playerScore[2] += scores[0] + reachCount*1000;
-                }else if(checkBoxPlayer4.Checked){
-                    playerScore[3] += scores[0] + reachCount*1000;
+                    playerScore[1] += scores[0] + reachCount * 1000;
+                }
+                else if (checkBoxPlayer3.Checked)
+                {
+                    playerScore[2] += scores[0] + reachCount * 1000;
+                }
+                else if (checkBoxPlayer4.Checked)
+                {
+                    playerScore[3] += scores[0] + reachCount * 1000;
                 }
 
-                if(checkBox2Player1.Checked){
+                if (checkBox2Player1.Checked)
+                {
                     playerScore[0] -= scores[0];
-                }else if(checkBox2Player2.Checked){
+                }
+                else if (checkBox2Player2.Checked)
+                {
                     playerScore[1] -= scores[0];
-                }else if(checkBox2Player3.Checked){
+                }
+                else if (checkBox2Player3.Checked)
+                {
                     playerScore[2] -= scores[0];
-                }else if(checkBox2Player4.Checked){
+                }
+                else if (checkBox2Player4.Checked)
+                {
                     playerScore[3] -= scores[0];
                 }
                 reachCount = 0;
             }
 
             //流局の場合
-            if(radioButton3.Checked){
-                if(checkBoxPlayer1.Checked) playerScore[0] += scores[0];
+            if (radioButton3.Checked)
+            {
+                if (checkBoxPlayer1.Checked) playerScore[0] += scores[0];
                 else playerScore[0] -= scores[1];
-                if(checkBoxPlayer2.Checked) playerScore[1] += scores[0];
+                if (checkBoxPlayer2.Checked) playerScore[1] += scores[0];
                 else playerScore[1] -= scores[1];
-                if(checkBoxPlayer3.Checked) playerScore[2] += scores[0];
+                if (checkBoxPlayer3.Checked) playerScore[2] += scores[0];
                 else playerScore[2] -= scores[1];
-                if(checkBoxPlayer4.Checked) playerScore[3] += scores[0];
+                if (checkBoxPlayer4.Checked) playerScore[3] += scores[0];
                 else playerScore[3] -= scores[1];
 
             }
         }
 
-        public void AddLog(){
+        public void AddLog()
+        {
             //ログの追加
             string agariLog = "";
-            if(radioButton1.Checked) agariLog = "ツモ";
-            if(radioButton2.Checked) agariLog = "ロン";
-            if(radioButton3.Checked) agariLog = "流局";
+            if (radioButton1.Checked) agariLog = "ツモ";
+            if (radioButton2.Checked) agariLog = "ロン";
+            if (radioButton3.Checked) agariLog = "流局";
 
             string winnerLog = "";
             string loserLog = "";
             string scoreLog = ScoreLabel.Text;
             int tempaiCount = 0;
 
-            if(radioButton1.Checked)
+            if (radioButton1.Checked)
             {
-                if(checkBoxPlayer1.Checked) winnerLog = playerNames[0];
-                if(checkBoxPlayer2.Checked) winnerLog = playerNames[1];
-                if(checkBoxPlayer3.Checked) winnerLog = playerNames[2];
-                if(checkBoxPlayer4.Checked) winnerLog = playerNames[3];
-            }else if(radioButton2.Checked)
+                if (checkBoxPlayer1.Checked) winnerLog = playerNames[0];
+                if (checkBoxPlayer2.Checked) winnerLog = playerNames[1];
+                if (checkBoxPlayer3.Checked) winnerLog = playerNames[2];
+                if (checkBoxPlayer4.Checked) winnerLog = playerNames[3];
+            }
+            else if (radioButton2.Checked)
             {
-                if(checkBoxPlayer1.Checked) winnerLog = playerNames[0];
-                if(checkBoxPlayer2.Checked) winnerLog = playerNames[1];
-                if(checkBoxPlayer3.Checked) winnerLog = playerNames[2];
-                if(checkBoxPlayer4.Checked) winnerLog = playerNames[3];
-                
-                if(checkBox2Player1.Checked) loserLog = playerNames[0];
-                if(checkBox2Player2.Checked) loserLog = playerNames[1];
-                if(checkBox2Player3.Checked) loserLog = playerNames[2];
-                if(checkBox2Player4.Checked) loserLog = playerNames[3];
-            }else if(radioButton3.Checked){
+                if (checkBoxPlayer1.Checked) winnerLog = playerNames[0];
+                if (checkBoxPlayer2.Checked) winnerLog = playerNames[1];
+                if (checkBoxPlayer3.Checked) winnerLog = playerNames[2];
+                if (checkBoxPlayer4.Checked) winnerLog = playerNames[3];
+
+                if (checkBox2Player1.Checked) loserLog = playerNames[0];
+                if (checkBox2Player2.Checked) loserLog = playerNames[1];
+                if (checkBox2Player3.Checked) loserLog = playerNames[2];
+                if (checkBox2Player4.Checked) loserLog = playerNames[3];
+            }
+            else if (radioButton3.Checked)
+            {
                 //勝った人はwinnerLogに連ねる AとBが勝ったならA,Bとなる
-                if(checkBoxPlayer1.Checked) winnerLog += playerNames[0] + ",";
-                if(checkBoxPlayer2.Checked) winnerLog += playerNames[1] + ",";
-                if(checkBoxPlayer3.Checked) winnerLog += playerNames[2] + ",";
-                if(checkBoxPlayer4.Checked) winnerLog += playerNames[3] + ",";
+                if (checkBoxPlayer1.Checked) winnerLog += playerNames[0] + ",";
+                if (checkBoxPlayer2.Checked) winnerLog += playerNames[1] + ",";
+                if (checkBoxPlayer3.Checked) winnerLog += playerNames[2] + ",";
+                if (checkBoxPlayer4.Checked) winnerLog += playerNames[3] + ",";
                 //最後のカンマを削除
-                if(winnerLog != "") winnerLog = winnerLog.Remove(winnerLog.Length - 1, 1);
+                if (winnerLog != "") winnerLog = winnerLog.Remove(winnerLog.Length - 1, 1);
                 //テンパイした人数を数える
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked) tempaiCount++;
+                    if (checkBox.Checked) tempaiCount++;
                 }
             }
 
             //ログの追加
             string log = "";
-            if(radioButton1.Checked) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " " + winnerLog + " " + scoreLog;
-            if(radioButton2.Checked) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " " + winnerLog + "が" + loserLog + "から" + scoreLog;
-            if(radioButton3.Checked) {
-                if(tempaiCount == mode)log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " 全員テンパイ";
-                else if(tempaiCount == 0) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " 全員ノーテン";
+            if (radioButton1.Checked) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " " + winnerLog + " " + scoreLog;
+            if (radioButton2.Checked) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " " + winnerLog + "が" + loserLog + "から" + scoreLog;
+            if (radioButton3.Checked)
+            {
+                if (tempaiCount == mode) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " 全員テンパイ";
+                else if (tempaiCount == 0) log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " 全員ノーテン";
                 else log = roundLabel.Text + " " + depositCount.ToString() + "本場 " + agariLog + " " + winnerLog + " テンパイ";
             }
-            logBox.AppendText(log+"\r\n");
+            logBox.AppendText(log + "\r\n");
         }
 
-        public bool IsCorrectInput(){
+        public bool IsCorrectInput()
+        {
 
-            if(radioButton1.Checked)
+            if (radioButton1.Checked)
             {
                 int checkBoxCount = 0;
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked) checkBoxCount++;
+                    if (checkBox.Checked) checkBoxCount++;
                 }
-                if(checkBoxCount != 1)
+                if (checkBoxCount != 1)
                 {
-                    MessageBox.Show("ツモの場合は和了者を一人だけ選択してください。", "エラー", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }else{
+                    MessageBox.Show("ツモの場合は和了者を一人だけ選択してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     return true;
                 }
             }
 
-            if(radioButton2.Checked)
+            if (radioButton2.Checked)
             {
                 int checkBoxCount1 = 0;
-                foreach(CheckBox checkBox in checkBoxPlayers1)
+                foreach (CheckBox checkBox in checkBoxPlayers1)
                 {
-                    if(checkBox.Checked) checkBoxCount1++;
+                    if (checkBox.Checked) checkBoxCount1++;
                 }
 
                 int checkBoxCount2 = 0;
-                foreach(CheckBox checkBox in checkBoxPlayers2)
+                foreach (CheckBox checkBox in checkBoxPlayers2)
                 {
-                    if(checkBox.Checked) checkBoxCount2++;
+                    if (checkBox.Checked) checkBoxCount2++;
                 }
 
-                if(checkBoxCount1 != 1 || checkBoxCount2 != 1)
+                if (checkBoxCount1 != 1 || checkBoxCount2 != 1)
                 {
-                    MessageBox.Show("ロンの場合は和了者と放銃者を一人ずつ選択してください。", "エラー", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }else{
+                    MessageBox.Show("ロンの場合は和了者と放銃者を一人ずつ選択してください。", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
                     return true;
                 }
             }
 
-            if(radioButton3.Checked)
+            if (radioButton3.Checked)
             {
                 return true;
             }
@@ -601,12 +658,12 @@ namespace ComputerToArduino
             // }else{
             //     groupBoxes[0].Enabled = true;
             // }
-            
+
         }
         //グループボックスのenabledをfalseに変える関数
         private void disableGroupBoxes()
         {
-            foreach(GroupBox groupBox in groupBoxes)
+            foreach (GroupBox groupBox in groupBoxes)
             {
                 //groupBox.Enabled = false;
             }
@@ -624,13 +681,16 @@ namespace ComputerToArduino
             hu = 0;
             reachCount = 0;
             depositCount = 0;
-            if(mode == 4){
-                for(int i = 0; i < 4; i++)
+            if (mode == 4)
+            {
+                for (int i = 0; i < 4; i++)
                 {
                     playerScore[i] = 25000;
                 }
-            }else{
-                for(int i = 0; i < 3; i++)
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
                 {
                     playerScore[i] = 35000;
                 }

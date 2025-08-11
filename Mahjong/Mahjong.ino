@@ -18,6 +18,16 @@ void setup() {
     lcds[i].init();
     lcds[i].backlight();
     lcds[i].clear();
+
+    // 最初に適当な表示
+    lcds[i].setCursor(0, 0);
+    lcds[i].print("Mahjong Score");
+    lcds[i].setCursor(0, 1);
+    lcds[i].print("System Ready!");
+  }
+  delay(2000); // 2秒表示してから待機表示に
+  for (int i = 0; i < 4; i++) {
+    lcds[i].clear();
     lcds[i].setCursor(0, 0);
     lcds[i].print("Waiting scores");
   }
